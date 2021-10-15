@@ -65,4 +65,8 @@ public class StateSevenBricks extends State{
             else return Player.PLAYER1;
         }
     }
+
+    public Player getPlayerToMove() {
+        return playerToMove;
+    }
 }
