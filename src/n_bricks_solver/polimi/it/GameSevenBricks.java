@@ -1,13 +1,13 @@
 package n_bricks_solver.polimi.it;
 
 public class GameSevenBricks {
-    State currentState;
+    StateSevenBricks currentState;
 
-    GameSevenBricks(State currentState){
+    GameSevenBricks(StateSevenBricks currentState){
         this.currentState = currentState;
     }
 
-    public State getCurrentState() {
+    public StateSevenBricks getCurrentState() {
         return currentState;
     }
 }
