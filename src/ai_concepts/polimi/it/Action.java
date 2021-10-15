@@ -1,3 +1,5 @@
+package ai_concepts.polimi.it;
+
 public class Action {
     State start;
     State dest;
