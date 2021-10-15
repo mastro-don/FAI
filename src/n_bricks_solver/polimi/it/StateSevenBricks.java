@@ -1,6 +1,7 @@
 package n_bricks_solver.polimi.it;
 
 import ai_concepts.polimi.it.Action;
+import ai_concepts.polimi.it.Player;
 import ai_concepts.polimi.it.State;
 
 import java.util.ArrayList;
@@ -11,12 +12,14 @@ import java.util.ListIterator;
 public class StateSevenBricks extends State{
     private List<Pile> piles;
     private final int minHeight = 2;
+    Player playerToMove;
 
     public StateSevenBricks() {
         this.piles = new ArrayList<>();
+        this.playerToMove = Player.PLAYER1;
     }
 
-    public StateSevenBricks(List<Pile> piles){
+    public StateSevenBricks(List<Pile> piles, Player playerToMove){
         this.piles = piles;
     }
 
@@ -33,11 +36,33 @@ public class StateSevenBricks extends State{
                     currPiles.remove(i);
                     currPiles.add(new Pile(j));
                     currPiles.add(new Pile(pileHeight - j));
-                    possibleActions.add(new Action(this, new StateSevenBricks(currPiles)));
+                    possibleActions.add(new Action(this, new StateSevenBricks(currPiles, (this.playerToMove.equals(Player.PLAYER1)?Player.PLAYER2:Player.PLAYER1) )));
                 }
             }
         }
 
         return possibleActions;
+    }
+
+    @Override
+    public boolean isGoal() {
+        for(Pile p : piles){
+            if(p.getHeight() > 2) return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public Player getWinner() {
+        if(!this.isGoal()){
+            return null;
+        }
+        else{
+            if(this.playerToMove.equals(Player.PLAYER1)){
+                return Player.PLAYER2;
+            }
+            else return Player.PLAYER1;
+        }
     }
 }
