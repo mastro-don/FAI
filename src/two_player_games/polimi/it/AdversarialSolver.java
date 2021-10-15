@@ -1,4 +1,4 @@
-package ai_concepts.polimi.it;
+package two_player_games.polimi.it;
 
 import ai_concepts.polimi.it.*;
 
