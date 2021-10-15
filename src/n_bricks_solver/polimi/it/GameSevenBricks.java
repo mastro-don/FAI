@@ -5,8 +5,8 @@ import ai_concepts.polimi.it.Game;
 public class GameSevenBricks extends Game {
     StateSevenBricks currentState;
 
-    GameSevenBricks(StateSevenBricks currentState){
-        this.currentState = currentState;
+    public GameSevenBricks(StateSevenBricks currentState){
+        super(currentState);
     }
 
     public StateSevenBricks getCurrentState() {
