@@ -35,8 +35,8 @@ public class StateSevenBricks extends StateAdversarial {
 
         for(int i = piles.size() - 1; i >= 0; i--){
             if(piles.get(i).getHeight() > minHeight){
-                // The pile can be splitted
-                for(int j = 1; j < (float) piles.get(i).getHeight(); j++){
+                // The pile can be split
+                for(int j = 1; j < (float) piles.get(i).getHeight() / 2.0; j++){
                     List<Pile> currPiles = new ArrayList<>(piles);
                     int pileHeight = piles.get(i).getHeight();
                     currPiles.remove(i);
