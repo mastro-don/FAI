@@ -19,6 +19,11 @@ public class StateSevenBricks extends StateAdversarial {
         this.piles = new ArrayList<>();
     }
 
+    public StateSevenBricks(int startingHeight){
+        this();
+        piles.add(new Pile(startingHeight));
+    }
+
     public StateSevenBricks(List<Pile> piles, Player playerToMove){
         super(playerToMove);
         this.piles = piles;

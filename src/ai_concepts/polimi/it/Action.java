@@ -1,8 +1,8 @@
 package ai_concepts.polimi.it;
 
 public class Action {
-    State start;
-    State dest;
+    private State start;
+    private State dest;
 
     public Action(State start, State dest) {
         this.start = start;
