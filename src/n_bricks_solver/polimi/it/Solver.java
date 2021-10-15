@@ -1,15 +1,20 @@
 package n_bricks_solver.polimi.it;
+package ai_concept.polimi.it
+
+import ai_concepts.polimi.it.Action;
+
+import java.util.List;
 
 public class Solver {
-    private Game InternalGame;
+    private Game CurrentGame;
 
-    void public Solver(Game InternalGame){
-        this.InternalGame = InternalGame;
+    void public Solver(Game CurrentGame){
+        this.CurrentGame = CurrentGame;
     }
 
-    public SolverMinimax(){
-        int[] Actions;
-        Actions[] = InternalGame.getState().getActions;
+    void public SolverMinimax(){
+        List<Action> Actions;
+        Actions = CurrentGame.getState().getActions();
 
     }
 
