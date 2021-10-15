@@ -1,2 +1,4 @@
 # FAI
- repository for peer collaboration
+ repository for collaboration with my peer Giacomo
+ 
+ PORCODIO
