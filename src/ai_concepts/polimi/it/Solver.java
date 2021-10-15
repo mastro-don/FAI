@@ -1,8 +1,9 @@
-package n_bricks_solver.polimi.it;
+package ai_concepts.polimi.it;
 
 import ai_concepts.polimi.it.Action;
 import ai_concepts.polimi.it.Game;
 import ai_concepts.polimi.it.State;
+import ai_concepts.polimi.it.Player;
 
 import java.util.List;
 
@@ -10,8 +11,6 @@ import static java.lang.System.out;
 
 public class Solver {
     private Game currentGame;
-
-    private int limitSolver;
 
     public Solver(Game currentGame){
         this.currentGame = currentGame;
@@ -22,23 +21,14 @@ public class Solver {
         State currentState;
         currentState = currentGame.getCurrentState();
         possibleActions = currentState.getActions();
-        limitSolver--;
         //solverMinimax
     }
 
-    public int solverDFS(State initialState){
-        Player p = initialState.getPlayerToMove();
-        if(initialState.isGoal() && p==initialState.getWinner()){
-            System.out.println("La mossa migliore è %s"initialState); //ritorna null/player1/player2!
-        }else{
-            List<Action> possibleActions = initialState.getActions();
+    public Game getCurrentGame() {
+        return currentGame;
+    }
 
-            int i=0;
-            for (Action a: possibleActions ) {
-                initialState = a.getDest();
-                solverDFS(initialState);
-            }
-        }
+    public int solverDFS(State initialState){
         return 1;
     }//non visita tutto l'albero
 
