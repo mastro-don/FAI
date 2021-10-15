@@ -18,6 +18,4 @@ public class Solver {
         possibleActions = currentGame.getCurrentState().getActions();
     }
 
-
-
 }
