@@ -7,16 +7,18 @@ import ai_concepts.polimi.it.State;
 import java.util.List;
 
 public class StateAdversarial extends State {
-    private Player playerToMove;
+    //ATTRIBUTI
+    private Player playerToMove; //attributo adversarial game! (si puo usare questo attributo per migliorare il Minimax)
 
+    //COSTRUTTORI
     public StateAdversarial() {
         this(Player.PLAYER1);
     }
-
     public StateAdversarial(Player playerToMove){
         this.playerToMove = playerToMove;
     }
 
+    //METODI
     @Override
     public List<Action> getActions() {
         return null;
