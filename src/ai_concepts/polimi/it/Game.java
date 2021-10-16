@@ -1,13 +1,15 @@
 package ai_concepts.polimi.it;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Game {
     private State currentState;
 
-   public Game(State currentState){
+   public Game(@NotNull State currentState){
         this.currentState = currentState;
    }
 
     public State getCurrentState() {
-        return currentState;
+        return this.currentState;
     }
 }

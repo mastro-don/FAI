@@ -71,4 +71,12 @@ public class StateSevenBricks extends StateAdversarial {
             else return Player.PLAYER1;
         }
     }
+
+    public void print(){
+        System.out.print("Piles:\n\t");
+        for(Pile p : piles){
+            System.out.print(p.getHeight() + " ");
+        }
+        System.out.print("\n");
+    }
 }

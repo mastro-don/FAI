@@ -1,6 +1,11 @@
 package ai_concepts.polimi.it;
 
-public class Action {
+import java.awt.*;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+
+public class Action{
     private State start;
     private State dest;
 
