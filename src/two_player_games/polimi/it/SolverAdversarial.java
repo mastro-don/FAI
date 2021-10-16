@@ -5,12 +5,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class AdversarialSolver extends Solver {
+public class SolverAdversarial extends Solver {
 
 
     private final static int depth = 10;
 
-    public AdversarialSolver(Game currentGame){
+    public SolverAdversarial(Game currentGame){
        super(currentGame);
     }
 
