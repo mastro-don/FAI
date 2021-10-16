@@ -1,9 +1,18 @@
 package n_bricks_solver.polimi.it;
 
-import ai_concepts.polimi.it.Game;
+public class GameSevenBricks /*extends Game */{//Cazzo di programmazione a oggetti
 
-public class GameSevenBricks extends Game {
+    private StateSevenBricks currentState;
+
     public GameSevenBricks(StateSevenBricks currentState){
-        super(currentState);
+        this.currentState = currentState;
     }
+
+    public StateSevenBricks getCurrentState() {
+        return currentState;
+    }
+    public void changeCurrentState(StateSevenBricks nextState) {
+        this.currentState = nextState;
+    }
+
 }

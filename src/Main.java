@@ -5,24 +5,23 @@ import n_bricks_solver.polimi.it.StateSevenBricks;
 
 public class Main {
     public static void main(String[] args){
-        int Dividi;
+
+        GameSevenBricks game = new GameSevenBricks(new StateSevenBricks(7));//parametro passato: SI
+        SolverSevenBricks s = new SolverSevenBricks(game);                              //Inizializzato il solver.
+        Action a;
         do{
-            GameSevenBricks game = new GameSevenBricks(new StateSevenBricks(7);
-            SolverSevenBricks s = new SolverSevenBricks(game);
-            Action a = s.solverMinimax(game.getCurrentState());
+            a = s.solverMinimax(game.getCurrentState());
             // Print best action
-            ((StateSevenBricks) a.getStart()).print();
-            ((StateSevenBricks) a.getDest()).print();
-            game.changeCurrentState(a.getDest());
-
-            // My action
-
-            Dividi = System.in.read();
-
-
-
-        }while(game.getCurrentState().isGoal());
-
-
+            System.out.println((StateSevenBricks) a.getStart());
+            System.out.println((StateSevenBricks) a.getDest());
+            // Execute best action
+            game.changeCurrentState( (StateSevenBricks) a.getDest());
+            if( !(game.getCurrentState().isGoal()) ){
+                // Human action
+                int[] vett={5,1,1};
+                game.changeCurrentState(game.getCurrentState().executeAction(vett ));
+                // Check and repeat
+            }
+        }while( !(game.getCurrentState().isGoal()) );
     }
 }

@@ -15,7 +15,7 @@ public class SolverAdversarial extends Solver {
     }
 
 
-    public Action solverMinimax(@NotNull State currentState){
+    public Action solverMinimax(@NotNull State currentState){   //sarebbe meglio se ritornasse uno stato!?
         for (Action a: currentState.getActions()) {
             if (solverMinimaxMAX(a.getDest()) == 1) return a;
         }
@@ -30,6 +30,7 @@ public class SolverAdversarial extends Solver {
             return -1;
         else
             possibleActions = currentState.getActions();
+        //if(currentstate.getPlayerToMove.equals(PLAYER!))...
         int max = -1;
         for (Action a: possibleActions) {
             if(solverMinimaxMIN(a.getDest()) > -1)
@@ -54,19 +55,8 @@ public class SolverAdversarial extends Solver {
         return max;
     }
 
-    /*public int solverDFS(State initialState){
-        Player p = initialState.getPlayerToMove();
-        if(initialState.isGoal() && p==initialState.getWinner()){
-            System.out.println("La mossa migliore è ");System.out.println(initialState); //ritorna null/player1/player2!
-        }else{
-            List<Action> possibleActions = initialState.getActions();
-
-            int i=0;
-            for (Action a: possibleActions ) {
-                initialState = a.getDest();
-                solverDFS(initialState);
-            }
+    public int alpha_beta_pruning(State initialState){
         }
         return 1;
-    }*/
+    }
 }

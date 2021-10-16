@@ -8,43 +8,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StateSevenBricks extends StateAdversarial {
-
-    //ATTRIBUTI
     private List<Pile> piles;
-    private final static int minHeight = 2;
+    private final int minHeight = 2;
 
-    //COSTRUTTORI
     public StateSevenBricks() {
         super();
         this.piles = new ArrayList<>();
     }
+
     public StateSevenBricks(int startingHeight){
         this();
         piles.add(new Pile(startingHeight));
     }
+
     public StateSevenBricks(List<Pile> piles, Player playerToMove){
         super(playerToMove);
         this.piles = piles;
     }
 
-    //MODELLI
+    public StateSevenBricks executeAction(List<Pile> piles){
+        this.piles = piles;
+        return this;
+    }
+    /*  In pratica ho pensato di trattare l'input come una serie di numeri separati dagli spazi, un po come viene fuori
+     *  l'output la prima prima volta... va bene per n piccole.
+     */
+
     @Override
     public List<Action> getActions() {
         List<Action> possibleActions = new ArrayList<>();
 
         for(int i = piles.size() - 1; i >= 0; i--){
             if(piles.get(i).getHeight() > minHeight){
-                // The pile can be split
+                // The pile can be splitted
                 for(int j = 1; j < (float) piles.get(i).getHeight(); j++){
                     List<Pile> currPiles = new ArrayList<>(piles);
                     int pileHeight = piles.get(i).getHeight();
                     currPiles.remove(i);
                     currPiles.add(new Pile(j));
                     currPiles.add(new Pile(pileHeight - j));
-                    possibleActions.add(new Action(this, new StateSevenBricks(currPiles, (this.getPlayerToMove().equals(Player.PLAYER1)?Player.PLAYER2:Player.PLAYER1) )));//PORCODIO STO CODICE DI MERDA È ILLEGGIBILE.
+                    possibleActions.add(new Action(this, new StateSevenBricks(currPiles, (this.getPlayerToMove().equals(Player.PLAYER1)?Player.PLAYER2:Player.PLAYER1) )));
                 }
-            }else{
-                //vorrei cancellare le piles piccole ma non so se sono nel posto giusto.
             }
         }
 
@@ -71,13 +75,5 @@ public class StateSevenBricks extends StateAdversarial {
             }
             else return Player.PLAYER1;
         }
-    }
-
-    public void print(){
-        System.out.print("Piles:\n\t");
-        for(Pile p : piles){
-            System.out.print(p.getHeight() + " ");
-        }
-        System.out.print("\n");
     }
 }

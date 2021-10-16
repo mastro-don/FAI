@@ -7,7 +7,7 @@ public class Game {
 
     public Game(@NotNull State currentState){
         this.currentState = currentState;
-   }
+    }
 
     public State getCurrentState() {
         return this.currentState;
