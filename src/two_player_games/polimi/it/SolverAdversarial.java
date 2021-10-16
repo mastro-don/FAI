@@ -1,27 +1,34 @@
 package two_player_games.polimi.it;
 
 import ai_concepts.polimi.it.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class AdversarialSolver extends Solver {
+public class SolverAdversarial extends Solver {
 
 
     private final static int depth = 10;
 
-    public AdversarialSolver(Game currentGame){
+    public SolverAdversarial(Game currentGame){
        super(currentGame);
     }
 
-
-    public Action solverMinimax(State currentState){
+    public void main(String[] args){
+        System.out.println("Hello World");
+    }
+    public Action solverMinimax(@NotNull State currentState){
         for (Action a: currentState.getActions()) {
-            if (solverMinimaxMAX(a.getDest()) == 1) return a;
+            if (solverMinimaxMAX(a.getDest()) == 1) {
+                System.out.println("hello");
+                System.out.println("State:"+ a.getStart());
+                return a;
+            }
         }
         return currentState.getActions().get(0); //fare random
     }
 
-    private int solverMinimaxMAX(State currentState) {
+    private int solverMinimaxMAX(@NotNull State currentState) {
         List<Action> possibleActions;
         if (currentState.isGoal() && currentState.getWinner().equals(Player.PLAYER1))
             return 1;
@@ -37,7 +44,7 @@ public class AdversarialSolver extends Solver {
         return max;
     }
 
-    private int solverMinimaxMIN(State currentState) {
+    private int solverMinimaxMIN(@NotNull State currentState) {
         List<Action> possibleActions;
         if (currentState.isGoal() && currentState.getWinner().equals(Player.PLAYER1))
             return 1;

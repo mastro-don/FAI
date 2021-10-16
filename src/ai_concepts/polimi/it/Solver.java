@@ -1,7 +1,5 @@
 package ai_concepts.polimi.it;
 
-import java.util.List;
-
 public class Solver {
     private Game currentGame;
 
@@ -14,6 +12,7 @@ public class Solver {
     }
 
     public int solverDFS(State initialState){
+        //da implementare
         return 1;
     }//non visita tutto l'albero
 

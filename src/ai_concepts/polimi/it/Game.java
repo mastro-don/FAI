@@ -3,7 +3,7 @@ package ai_concepts.polimi.it;
 public class Game {
     private State currentState;
 
-   public Game(State currentState){
+    public Game(State currentState){
         this.currentState = currentState;
    }
 
