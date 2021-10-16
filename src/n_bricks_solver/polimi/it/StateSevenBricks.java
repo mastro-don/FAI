@@ -47,7 +47,7 @@ public class StateSevenBricks extends StateAdversarial {
                     currPiles.remove(i);
                     currPiles.add(new Pile(j));
                     currPiles.add(new Pile(pileHeight - j));
-                    possibleActions.add(new Action(this, new StateSevenBricks(currPiles, (this.getPlayerToMove().equals(Player.PLAYER1)?Player.PLAYER2:Player.PLAYER1) )));
+                    possibleActions.add(new ActionSevenBricks(this, new StateSevenBricks(currPiles, (this.getPlayerToMove().equals(Player.PLAYER1)?Player.PLAYER2:Player.PLAYER1) )));
                 }
             }
         }

@@ -1,17 +1,21 @@
 package n_bricks_solver.polimi.it;
 
-public class ActionSevenBricks /*extends Action */{             //Vedi classe sotto
+import ai_concepts.polimi.it.Action;
+
+public class ActionSevenBricks extends Action {             //Vedi classe sotto
+
     private StateSevenBricks start;
-    private StateSevenBricks dest;
+
     public ActionSevenBricks(StateSevenBricks start, StateSevenBricks dest) {
-        this.start = start;
-        this.dest = dest;
+        super(StateSevenBricks start, StateSevenBricks dest);
     }
-    public StateSevenBricks getStart() {
+
+    private StateSevenBricks dest;
+    public StateSevenBricks getStartSB() {
         return start;
     }
 
-    public StateSevenBricks getDest() {
+    public StateSevenBricks getDestSB() {
         return dest;
     }
 
